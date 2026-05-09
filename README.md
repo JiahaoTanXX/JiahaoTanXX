@@ -1,5 +1,12 @@
 ## Hi there 👋
 
+
+- 🌱 I’m currently learning LLM and agent.
+- 📫 How to reach me: tanjiahaoxx@163.com
+- 😄 Pronouns: Proactive & Enthusiatic
+
+
+
 <!--
 **JiahaoTanXX/JiahaoTanXX** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
