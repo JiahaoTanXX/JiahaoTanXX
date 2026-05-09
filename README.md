@@ -1,8 +1,8 @@
-## Hi there 👋
+## Nice to meet U
 
 
 - 🌱 I’m currently learning LLM and agent.
-- 📫 How to reach me: tanjiahaoxx@163.com
+- 📫 How to reach me:  tanjiahaoxx@163.com
 - 😄 Pronouns: Proactive & Enthusiatic
 
 
