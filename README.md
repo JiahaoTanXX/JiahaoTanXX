@@ -79,4 +79,4 @@ SkillLoop tests whether a skill completes its task correctly and whether adversa
 ---
 
 Interested in reliable agent training data or coding-agent systems?  
-**[t.jiahao@outlook.com](mailto:t.jiahao@outlook.com)**
+**[t.jiahao@outlook.com]/[tanjiahaoxx@163.com](mailto:t.jiahao@outlook.com)**
