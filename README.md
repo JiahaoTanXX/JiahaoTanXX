@@ -5,7 +5,7 @@
 
 Understanding how agent trajectories become reliable training data.
 
-MSc student in Data Science at **City University of Hong Kong (Dongguan)**
+MSc student in Data Science at **City University of Hong Kong**
 
 [Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch) &nbsp;·&nbsp; [SkillLoop](https://github.com/JiahaoTanXX/SkillLoop) &nbsp;·&nbsp; [Merged contribution](https://github.com/microsoft/agent-lightning/pull/587) &nbsp;·&nbsp; [Contact](mailto:t.jiahao@outlook.com)
 
@@ -68,7 +68,7 @@ SkillLoop tests whether a skill completes its task correctly and whether adversa
 
 ## Background & tools
 
-**City University of Hong Kong (Dongguan)** — MSc in Data Science, 2026–2028 (expected)  
+**City University of Hong Kong** — MSc in Data Science, 2026–2028 (expected)  
 **South China Agricultural University** — Bachelor's in Software Engineering, 2021–2025 · GPA: 90/100 · Outstanding Graduate
 
 **Engineering:** Python, Git, Linux, pytest, pandas / Polars, JSONL / Parquet  
@@ -78,4 +78,4 @@ SkillLoop tests whether a skill completes its task correctly and whether adversa
 ---
 
 Interested in reliable agent training data or coding-agent systems?  
-**[t.jiahao@outlook.com]/[tanjiahaoxx@163.com](mailto:t.jiahao@outlook.com)**
+**[t.jiahao@outlook.com] / [tanjiahaoxx@163.com]**
