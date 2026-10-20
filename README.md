@@ -16,7 +16,7 @@ MSc student in Data Science at **City University of Hong Kong (Dongguan)**
 
 I work on the data and tooling behind multi-turn agents: **trajectory aggregation, token-level consistency, and training-sample construction**. I also build systems for **agent safety evaluation and regression testing**. Across both, I focus on observable behavior, reproducible experiments, and evidence that can be inspected.
 
-Currently seeking **LLM / Agent R&D internships** and research collaborations in agentic RL data, coding agents, and post-training systems.
+Currently seeking **LLM / Agent RL internships** and research collaborations in agentic RL data, coding agents, and post-training systems.
 
 ## Selected projects
 
