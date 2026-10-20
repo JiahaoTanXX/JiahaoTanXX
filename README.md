@@ -2,60 +2,68 @@
 
 # Jiahao Tan
 
-### Agent Systems · Reproducible Evaluation · LLM Applications
+### Agentic RL Data · Coding Agents · Reproducible Research
 
-Building decision-making agents and the experiments that explain their behavior.
+Understanding how agent trajectories become reliable training data.
 
-[Featured project](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition) · [Technical report](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/blob/main/reports/技术报告.md) · [Email](mailto:tanjiahaoxx@163.com)
+MSc student in Data Science at **City University of Hong Kong (Dongguan)**
+
+[Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch) &nbsp;·&nbsp; [Merged contribution](https://github.com/microsoft/agent-lightning/pull/587) &nbsp;·&nbsp; [Contact](mailto:t.jiahao@outlook.com)
 
 </div>
 
 ---
 
-I work on agent decision-making, evaluation, and LLM-assisted analysis. My current public work centers on **long-horizon planning in simulated environments**: turning observations into legal actions, diagnosing failures from replays, and testing strategy changes with controlled experiments.
+I work on the data and tooling behind multi-turn agents: **trajectory aggregation, token-level consistency, and training-sample construction**. I combine small reference implementations with controlled experiments to understand where agent training pipelines break and how to diagnose them.
 
-我关注 Agent 决策、可复现评测与 LLM 辅助分析，希望让系统的行为有迹可循，让策略改进有实验依据。
+Currently seeking **LLM / Agent R&D internships** and research collaborations in agentic RL data, coding agents, and post-training systems.
 
-### Featured work
+## Selected project
 
-#### [Kaggriculture — Long-Horizon Decision Agent & Evaluation System](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition)
+### [Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch)
 
-A modular Python agent for a **720-turn agricultural economy simulation**, with a companion evaluation and replay-analysis workflow.
+**A diagnostic toolkit and empirical study of multi-turn trajectory data for agentic RL.**
 
-| Component | Implementation |
+Merging agent turns into a training sample requires the next prompt to preserve the previous token context. Trace2Batch investigates how chat templates, tool-call parsing, and re-tokenization can silently break that assumption.
+
+| Study | Evidence |
 | :--- | :--- |
-| **Decision pipeline** | State parsing, crop and resource planning, unit task scheduling, market decisions, and legal-action safeguards |
-| **Controlled evaluation** | Fixed seeds, both player seats, three official baseline opponents, and strategy ablations |
-| **Replay analysis** | Structured action and economy summaries, deterministic diagnostics, and an optional offline LLM analyst |
-| **Experiment tooling** | Match runners, tournament scripts, submission packaging, and unit / environment integration tests |
+| **Chat-template consistency** | 900 public trajectories, 5 tokenizers across 4 model families, and 107,848 merge attempts in an offline collection-path simulation |
+| **Real sampling** | Follow-up experiments with model sampling and a live vLLM server separate template rewrites, parser formatting, and tokenization mismatches |
+| **Length-budget allocation** | On SWE-smith at a 16,384-token row limit, dynamic prompt/response allocation raised policy-token retention from **26.3% to 54.6%** |
 
-```text
-Observe → Plan resources → Schedule tasks → Validate actions → Act
-   ↑                                                           │
-   └── Controlled experiments ← Diagnose failures ← Replay ─────┘
-```
+**What I built**
 
-**Recorded baseline check:** 12 wins across 12 local games against `pass`, `random`, and `starter`, using two fixed seeds and both player seats. This is a small engineering validation set, not a leaderboard result; broader evaluation remains necessary.
+- A dependency-free sample builder and mismatch classifier for trajectory aggregation, policy masks, rewards, and truncation.
+- Prefix-stable template patches and a token-in-token-out reference implementation.
+- Reproducible experiments with pinned data/model revisions, fixed sampling seeds, offline and tokenizer tests, and CI.
 
-**Ablation finding:** disabling task scheduling changed the recorded result against `starter` from 4/4 wins for the rule baseline to 0/4. The report also records settings with no measured additional gain, including opponent awareness and bootstrap value scoring in this test.
+**Selected finding:** in canonical-output experiments, template patches restored merging from **0% to 100%** for the tested Qwen3 non-thinking and gpt-oss configurations. Real sampling exposed additional parser and tokenization failures, motivating token-preserving collection.
 
-[Agent code](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/tree/main/src/kaggriculture_agent) · [Evaluation protocol](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/blob/main/reports/实验协议.md) · [Recorded results](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/blob/main/reports/baseline-validation-2026-08-29.json) · [Technical report](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/blob/main/reports/技术报告.md)
+These are data-pipeline findings; merge rates and token retention do not establish downstream model-quality gains.
 
-### LLM-assisted experiment analysis
+[Code](https://github.com/JiahaoTanXX/Trace2Batch/tree/main/trace2batch) · [Prefix study](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/template_prefix/REPORT.md) · [Template patches](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/template_patch/REPORT.md) · [GPU sampling](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/vllm_sampling/REPORT.md) · [Budget study](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/truncation/REPORT.md)
 
-The project's [Replay Analyst](https://github.com/JiahaoTanXX/Kaggle-Featured-Competition/tree/main/analyst) connects structured replay evidence to failure hypotheses and candidate experiments.
+## Open-source contributions
 
-- **Offline by default:** produces deterministic diagnostics and a reviewable prompt packet.
-- **Optional model integration:** supports an OpenAI-compatible API for post-match analysis.
-- **Separate from the acting policy:** the LLM analyzes completed games; the submitted agent uses a lightweight rule-based decision pipeline.
-- **Evidence before promotion:** the experiment protocol requires controlled comparisons before adopting a proposed strategy change.
+**Microsoft Agent Lightning**
 
-### Interests & collaboration
+- **[PR #587 — Merged](https://github.com/microsoft/agent-lightning/pull/587)**  
+  Fixed LLM Gateway handling of valid JSON with a non-object top-level value. Added input validation and parameterized regression tests so strings, arrays, numbers, and `null` receive a clear **HTTP 400** response instead of a server error.
 
-**Research interests:** long-horizon agent planning, evaluation and failure analysis, LLM-assisted experimentation, and data science.
+- **[Issue #645 — Proposal](https://github.com/microsoft/agent-lightning/issues/645)**  
+  Reported missing cause attribution in trajectory-merge diagnostics, backed by experiments on **900 public agent trajectories**. Proposed separating template mismatches from re-tokenization failures, with a standalone reference implementation.
 
-**Also exploring:** small language models through [MiniMind](https://github.com/JiahaoTanXX/minimind), a fork of [jingyaogong/minimind](https://github.com/jingyaogong/minimind).
+## Background & tools
 
-I'm interested in **AI / LLM / Agent opportunities** and research collaborations around agent systems and reproducible evaluation.
+**City University of Hong Kong (Dongguan)** — MSc in Data Science, 2026–2028 (expected)  
+**South China Agricultural University** — Bachelor's in Software Engineering, 2021–2025 · GPA: 90/100 · Outstanding Graduate
 
-**Contact:** [tanjiahaoxx@163.com](mailto:tanjiahaoxx@163.com) · English / 中文
+**Engineering:** Python, Git, Linux, pytest, pandas / Polars, JSONL / Parquet  
+**Model tooling:** PyTorch, Hugging Face Transformers, vLLM  
+**Focus:** multi-turn trajectories, policy masks, reward handling, chat-template consistency, and SFT / RL data pipelines
+
+---
+
+Interested in reliable agent training data or coding-agent systems?  
+**[t.jiahao@outlook.com](mailto:t.jiahao@outlook.com)**
