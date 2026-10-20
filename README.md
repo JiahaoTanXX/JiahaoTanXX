@@ -8,17 +8,17 @@ Understanding how agent trajectories become reliable training data.
 
 MSc student in Data Science at **City University of Hong Kong (Dongguan)**
 
-[Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch) &nbsp;·&nbsp; [Merged contribution](https://github.com/microsoft/agent-lightning/pull/587) &nbsp;·&nbsp; [Contact](mailto:t.jiahao@outlook.com)
+[Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch) &nbsp;·&nbsp; [SkillLoop](https://github.com/JiahaoTanXX/SkillLoop) &nbsp;·&nbsp; [Merged contribution](https://github.com/microsoft/agent-lightning/pull/587) &nbsp;·&nbsp; [Contact](mailto:t.jiahao@outlook.com)
 
 </div>
 
 ---
 
-I work on the data and tooling behind multi-turn agents: **trajectory aggregation, token-level consistency, and training-sample construction**. I combine small reference implementations with controlled experiments to understand where agent training pipelines break and how to diagnose them.
+I work on the data and tooling behind multi-turn agents: **trajectory aggregation, token-level consistency, and training-sample construction**. I also build systems for **agent safety evaluation and regression testing**. Across both, I focus on observable behavior, reproducible experiments, and evidence that can be inspected.
 
 Currently seeking **LLM / Agent R&D internships** and research collaborations in agentic RL data, coding agents, and post-training systems.
 
-## Selected project
+## Selected projects
 
 ### [Trace2Batch](https://github.com/JiahaoTanXX/Trace2Batch)
 
@@ -43,6 +43,19 @@ Merging agent turns into a training sample requires the next prompt to preserve 
 These are data-pipeline findings; merge rates and token retention do not establish downstream model-quality gains.
 
 [Code](https://github.com/JiahaoTanXX/Trace2Batch/tree/main/trace2batch) · [Prefix study](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/template_prefix/REPORT.md) · [Template patches](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/template_patch/REPORT.md) · [GPU sampling](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/vllm_sampling/REPORT.md) · [Budget study](https://github.com/JiahaoTanXX/Trace2Batch/blob/main/experiments/truncation/REPORT.md)
+
+### [SkillLoop](https://github.com/JiahaoTanXX/SkillLoop)
+
+**A safety evaluation and CI platform prototype for agent skills.**
+
+SkillLoop tests whether a skill completes its task correctly and whether adversarial inputs cause observable unauthorized effects. It connects semantic scanning, adversarial testing, controlled tool execution, independent outcome checks, and patch regression.
+
+- **Evidence-based evaluation:** checks task artifacts and tool-proxy events, with separate judgments for business success, safety violations, and evidence completeness.
+- **Controlled execution:** validates structured tool requests through a runtime and proxy, with SQLite-backed task state and auditable call records.
+- **Repair and regression:** tests candidate patches against the original case, attack variants, and normal tasks.
+- **Interactive demo:** an order-processing workbench for inspecting findings, comparing candidates, and exporting redacted reports; additional profiles cover refunds and Markdown indexing.
+
+[Repository](https://github.com/JiahaoTanXX/SkillLoop) · [Demo guide](https://github.com/JiahaoTanXX/SkillLoop/blob/main/demo/README.md) · [Architecture](https://github.com/JiahaoTanXX/SkillLoop/blob/main/docs/system-design-v2.2.zh-CN.md)
 
 ## Open-source contributions
 
