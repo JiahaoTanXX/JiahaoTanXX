@@ -1,6 +1,5 @@
 <div align="center">
 
-# Jiahao Tan
 
 ### Agentic RL Data · Coding Agents · Reproducible Research
 
