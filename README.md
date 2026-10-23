@@ -65,14 +65,10 @@ SkillLoop tests whether a skill completes its task correctly and whether adversa
 - **[Issue #645 — Proposal](https://github.com/microsoft/agent-lightning/issues/645)**  
   Reported missing cause attribution in trajectory-merge diagnostics, backed by experiments on **900 public agent trajectories**. Proposed separating template mismatches from re-tokenization failures, with a standalone reference implementation.
 
-## Background & tools
+## Background
 
 **City University of Hong Kong** — MSc in Data Science, 2026–2028 (expected)  
 **South China Agricultural University** — Bachelor's in Software Engineering, 2021–2025 · GPA: 90/100 · Outstanding Graduate
-
-**Engineering:** Python, Git, Linux, pytest, pandas / Polars, JSONL / Parquet  
-**Model tooling:** PyTorch, Hugging Face Transformers, vLLM  
-**Focus:** multi-turn trajectories, policy masks, reward handling, chat-template consistency, and SFT / RL data pipelines
 
 ---
 
